@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/tv_user_name"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".ui.home.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/selamat_datang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
         android:text="Selamat Datang,"
         android:textSize="16sp"
@@ -30,12 +33,13 @@
         app:layout_constraintTop_toBottomOf="@+id/selamat_datang" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="15dp"
+        android:background="#00B39C"
         android:orientation="horizontal"
         android:padding="15dp"
-        android:background="#00B39C"
-        android:layout_marginVertical="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_userName">
@@ -51,6 +55,7 @@
                 android:background="#fff"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/cardView3"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -66,7 +71,7 @@
                         android:id="@+id/iv_fertilizer_calculator"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@tools:sample/avatars" />
+                        android:src="@drawable/calculator_pupuk" />
 
                     <TextView
                         android:id="@+id/tv_fertilizer_calculator"
@@ -103,7 +108,7 @@
                         android:id="@+id/iv_pest_disease"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@tools:sample/avatars" />
+                        android:src="@drawable/caterpillar" />
 
                     <TextView
                         android:id="@+id/tv_pest_disease"
@@ -125,6 +130,7 @@
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cardView3"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
@@ -139,7 +145,7 @@
                         android:id="@+id/iv_cultivation_tips"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@tools:sample/avatars" />
+                        android:src="@drawable/plant_hand" />
 
                     <TextView
                         android:id="@+id/tv_cultivation_tips"
@@ -156,4 +162,147 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tv_heading2_sembuhkan_tanamanmu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:text="@string/heading2_heal_your_plants"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/rounded_background_grey"
+        android:orientation="vertical"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_heading2_sembuhkan_tanamanmu">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ccan" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/scan_image"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="50dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/angle_right"
+                    app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+                    app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView"
+                    app:layout_constraintStart_toEndOf="@+id/imageView4"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/list" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/title_see_diagnose"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="50dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/angle_right"
+                    app:layout_constraintEnd_toStartOf="@+id/linearLayout4"
+                    app:layout_constraintStart_toEndOf="@+id/linearLayout3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/bottle" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/title_medicine_recommendation"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <Button
+            style="@style/CustomButtonStyle"
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Scan Gambar" />
+    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
