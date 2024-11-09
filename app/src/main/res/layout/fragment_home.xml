@@ -304,5 +304,7 @@
             android:layout_marginTop="15dp"
             android:text="Scan Gambar" />
     </LinearLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
