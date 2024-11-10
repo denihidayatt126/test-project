@@ -13,4 +13,18 @@
     <string name="title_see_diagnose">Lihat\nDiagnosis</string>
     <string name="title_medicine_recommendation">Rekomendasi\nObat</string>
     <string name="hallo">Hallo, Pak Tani\nSelamat Datang</string>
+    <string name="title_humidity">Humidity</string>
+    <string name="info_temperature">26.3°C</string>
+    <string name="info_description_weather">Cuaca hangat dan berawan</string>
+    <string name="humidity_percentage">61%</string>
+    <string name="codes_farmer1">This is icon of farmer 1</string>
+    <string name="codes_weather1">This is icon of weather 1</string>
+    <string name="title_wind_speed">Wind Speed</string>
+    <string name="wind_speed">2.37 m/s</string>
+    <string name="title_pressure">Pressure</string>
+    <string name="pressure">1021mb</string>
+    <string name="button_scan_image">Ambil Gambar</string>
+    <string name="codes_calculator">This is icon of fertilizer calculator</string>
+    <string name="city">Jakarta, Indonesia</string>
+    <string name="heading2_soon_feature">Soon Feature</string>
 </resources>
