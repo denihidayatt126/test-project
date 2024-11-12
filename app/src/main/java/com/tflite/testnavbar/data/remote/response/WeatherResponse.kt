@@ -92,10 +92,10 @@ data class Wind(
 	val deg: Int,
 
 	@field:SerializedName("speed")
-	val speed: Any,
+	val speed: Double,
 
 	@field:SerializedName("gust")
-	val gust: Any
+	val gust: Double
 )
 
 data class WeatherItem(
@@ -116,10 +116,10 @@ data class WeatherItem(
 data class Main(
 
 	@field:SerializedName("temp")
-	val temp: Any,
+	val temp: Double,
 
 	@field:SerializedName("temp_min")
-	val tempMin: Any,
+	val tempMin: Double,
 
 	@field:SerializedName("grnd_level")
 	val grndLevel: Int,
@@ -134,8 +134,8 @@ data class Main(
 	val seaLevel: Int,
 
 	@field:SerializedName("feels_like")
-	val feelsLike: Any,
+	val feelsLike: Double,
 
 	@field:SerializedName("temp_max")
-	val tempMax: Any
+	val tempMax: Double
 )

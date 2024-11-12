@@ -15,6 +15,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progressIndicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <LinearLayout
                     android:id="@+id/linearlayoutone"
                     android:layout_width="match_parent"
@@ -72,21 +82,23 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content">
 
                         <LinearLayout
                             android:id="@+id/linearLayout6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
                             android:orientation="vertical"
                             android:padding="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+                                android:layout_height="wrap_content">
 
                                 <LinearLayout
                                     android:id="@+id/linearLayout5"
@@ -98,21 +110,22 @@
                                     app:layout_constraintTop_toTopOf="parent">
 
                                     <TextView
-                                        android:id="@+id/textView4"
+                                        android:id="@+id/tv_city"
                                         style="@style/TextContent.BodyMedium"
                                         android:text="@string/city" />
 
                                     <TextView
                                         android:id="@+id/tv_info_temperature"
                                         style="@style/TextContent.Bold"
-                                        android:text="@string/info_temperature"
-                                        android:textSize="40sp"
-                                        android:textColor="@color/lime_green"/>
+                                        android:text="@string/no_internet"
+                                        android:textColor="@color/lime_green"
+                                        android:textSize="40sp" />
 
                                     <TextView
                                         android:id="@+id/tv_info_description_weather"
                                         style="@style/TextContent.BodySmall"
                                         android:text="@string/info_description_weather" />
+
                                 </LinearLayout>
 
                                 <ImageView
@@ -126,14 +139,26 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintTop_toTopOf="@+id/linearLayout5" />
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
+                                <View
+                                    android:id="@+id/view_line"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="15dp"
-                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    android:layout_height="2dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginEnd="15dp"
+                                    android:background="@android:color/darker_gray"
+                                    app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+                                    app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/constraintLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/view_line">
 
                                     <LinearLayout
                                         android:id="@+id/linearLayout9"
@@ -156,10 +181,10 @@
                                         <TextView
                                             android:id="@+id/tv_info_humidity_percentage"
                                             style="@style/TextContent.BodyMedium.Bold"
-                                            android:textColor="@color/lime_green"
                                             android:layout_gravity="center"
                                             android:gravity="center"
-                                            android:text="@string/humidity_percentage" />
+                                            android:text="@string/no_internet"
+                                            android:textColor="@color/lime_green" />
                                     </LinearLayout>
 
                                     <LinearLayout
@@ -184,10 +209,10 @@
                                         <TextView
                                             android:id="@+id/tv_info_wind_speed"
                                             style="@style/TextContent.BodyMedium.Bold"
-                                            android:textColor="@color/lime_green"
                                             android:layout_gravity="center"
                                             android:gravity="center"
-                                            android:text="@string/wind_speed" />
+                                            android:text="@string/no_internet"
+                                            android:textColor="@color/lime_green" />
                                     </LinearLayout>
 
                                     <LinearLayout
@@ -211,10 +236,10 @@
                                         <TextView
                                             android:id="@+id/tv_info_pressure"
                                             style="@style/TextContent.BodyMedium.Bold"
-                                            android:textColor="@color/lime_green"
                                             android:layout_gravity="center"
                                             android:gravity="center"
-                                            android:text="@string/pressure" />
+                                            android:text="@string/no_internet"
+                                            android:textColor="@color/lime_green" />
                                     </LinearLayout>
 
                                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -234,6 +259,7 @@
                     android:layout_marginVertical="20dp"
                     android:layout_marginStart="15dp"
                     android:text="@string/heading2_heal_your_plants"
+                    android:textColor="@color/dark_cyan"
                     app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/card_view_one" />
@@ -300,6 +326,7 @@
                     style="@style/TextContent.TitleMedium.Bold"
                     android:layout_marginVertical="20dp"
                     android:text="@string/heading2_soon_feature"
+                    android:textColor="@color/dark_cyan"
                     app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                     app:layout_constraintStart_toStartOf="@+id/linearLayout2"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
