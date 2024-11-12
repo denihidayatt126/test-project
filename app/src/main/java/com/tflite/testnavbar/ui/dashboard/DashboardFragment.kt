@@ -6,15 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.tflite.testnavbar.data.Result
 import com.tflite.testnavbar.databinding.FragmentDashboardBinding
+import com.tflite.testnavbar.viewmodel.WeatherViewModel
+import com.tflite.testnavbar.viewmodel.WeatherViewModelFactory
 
 class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,17 +23,34 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        _binding = FragmentDashboardBinding.inflate(layoutInflater, container, false)
+        return binding.root
+    }
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val factory = WeatherViewModelFactory.getInstance()
+        val viewModel: WeatherViewModel by viewModels { factory }
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        viewModel.weatherData.observe(viewLifecycleOwner) { results ->
+            when (results) {
+                is Result.Loading -> { binding.progressBar.visibility = View.VISIBLE}
+                is Result.Success -> {
+                    val weather = results.data
+
+                    binding.progressBar.visibility = View.GONE
+                    binding.tvCity.text = weather.name
+                    binding.tvCountry.text = weather.sys.country
+                    binding.tvDescription.text = weather.weather[0].description
+                    binding.tvHumidity.text = "Humidity: ${weather.main.humidity}%"
+                    binding.tvWindSpeed.text = "Wind Speed: ${weather.wind.speed} m/s"
+                    binding.tvTemperature.text = "Temperature: ${weather.main.temp}°C"
+                }
+                is Result.Error -> {
+                    binding.progressBar.visibility = View.GONE
+                }
+            }
         }
-        return root
+        viewModel.fetchWeather()
     }
 
     override fun onDestroyView() {
